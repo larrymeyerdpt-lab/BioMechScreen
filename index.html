@@ -1675,11 +1675,11 @@ const ReadOnlyToeTouch = ({
     className: "grid grid-cols-2 gap-y-1"
   }, /*#__PURE__*/React.createElement("div", {
     className: "font-medium text-gray-600"
-  }, "Thoracic:"), /*#__PURE__*/React.createElement("div", null, thoracic || '-'), /*#__PURE__*/React.createElement("div", {
+  }, "Thoracic Flexion Deficit:"), /*#__PURE__*/React.createElement("div", null, thoracic || '-'), /*#__PURE__*/React.createElement("div", {
     className: "font-medium text-gray-600"
-  }, "Lumbar:"), /*#__PURE__*/React.createElement("div", null, lumbar || '-'), /*#__PURE__*/React.createElement("div", {
+  }, "Lumbar Flexion Deficit:"), /*#__PURE__*/React.createElement("div", null, lumbar || '-'), /*#__PURE__*/React.createElement("div", {
     className: "font-medium text-gray-600"
-  }, "Sacrum:"), /*#__PURE__*/React.createElement("div", null, sacrum || '-')));
+  }, "Sacrum Flexion Deficit:"), /*#__PURE__*/React.createElement("div", null, sacrum || '-')));
 };
 const ReadOnlyForefoot = ({
   rOri,
@@ -4071,7 +4071,7 @@ function findBiomechanicsFindings(formData) {
     const v = formData[key];
     if (v && v !== 'WFL') {
       findings.push({ category: 'Mobility', subsection: 'Toe Touch',
-        label: `Toe Touch — ${label}`, side: null, value: v, kind: 'deficit' });
+        label: `Toe Touch — ${label} flexion deficit`, side: null, value: v.replace(' Flexion', ''), kind: 'deficit' });
     }
   }
 
@@ -4779,15 +4779,15 @@ const BiomechanicsExam = () => {
     }, /*#__PURE__*/React.createElement("h4", {
       className: "font-bold text-gray-700 text-sm border-b pb-1 mb-2"
     }, "Single-Leg Squat"), /*#__PURE__*/React.createElement(ReadOnlyDual, {
-      label: "Pelvic Stability",
+      label: "Pelvic Stability Deficit",
       rVal: formData.sls_pelvic_R,
       lVal: formData.sls_pelvic_L
     }), /*#__PURE__*/React.createElement(ReadOnlyDual, {
-      label: "Hip Stability",
+      label: "Hip Stability Deficit",
       rVal: formData.sls_hip_R,
       lVal: formData.sls_hip_L
     }), /*#__PURE__*/React.createElement(ReadOnlyDual, {
-      label: "Ankle Stability",
+      label: "Ankle Stability Deficit",
       rVal: formData.sls_ankle_R,
       lVal: formData.sls_ankle_L
     }), formData.sls_notes && formData.sls_notes.trim() && /*#__PURE__*/React.createElement("div", {
@@ -5177,17 +5177,17 @@ const BiomechanicsExam = () => {
   }), opt))))), /*#__PURE__*/React.createElement("h4", {
     className: "font-bold text-gray-800 mt-6 mb-3 border-b pb-1"
   }, "Single-Leg Squat"), /*#__PURE__*/React.createElement(DeficitRow, {
-    label: "Pelvic Stability",
+    label: "Pelvic Stability Deficit",
     baseName: "sls_pelvic",
     data: formData,
     onChange: handleChange
   }), /*#__PURE__*/React.createElement(DeficitRow, {
-    label: "Hip Stability",
+    label: "Hip Stability Deficit",
     baseName: "sls_hip",
     data: formData,
     onChange: handleChange
   }), /*#__PURE__*/React.createElement(DeficitRow, {
-    label: "Ankle Stability",
+    label: "Ankle Stability Deficit",
     baseName: "sls_ankle",
     data: formData,
     onChange: handleChange
@@ -5217,17 +5217,17 @@ const BiomechanicsExam = () => {
   }, /*#__PURE__*/React.createElement("div", {
     className: "text-left"
   }, "Segment"), /*#__PURE__*/React.createElement("div", null, "WFL"), /*#__PURE__*/React.createElement("div", null, "Mild"), /*#__PURE__*/React.createElement("div", null, "Mod"), /*#__PURE__*/React.createElement("div", null, "Sig")), /*#__PURE__*/React.createElement(ToeTouchRow, {
-    label: "Thoracic",
+    label: "Thoracic Flexion Deficit",
     name: "toe_touch_thoracic",
     data: formData,
     onChange: handleChange
   }), /*#__PURE__*/React.createElement(ToeTouchRow, {
-    label: "Lumbar",
+    label: "Lumbar Flexion Deficit",
     name: "toe_touch_lumbar",
     data: formData,
     onChange: handleChange
   }), /*#__PURE__*/React.createElement(ToeTouchRow, {
-    label: "Sacrum",
+    label: "Sacrum Flexion Deficit",
     name: "toe_touch_sacrum",
     data: formData,
     onChange: handleChange
